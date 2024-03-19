@@ -1,0 +1,14 @@
+@if ({articles: articles$ | async, user: user$ | async}; as vs) {
+<article-input (add)="vs.articles.unshift($event)" [userId]="vs.user.id" />
+<div class="articles">
+  @for (article of vs.articles; track article.id) {
+  <section class="article">
+    <app-article
+      (delete)="vs.articles.splice($index, 1)"
+      [article]="article"
+      [userId]="vs.user.id"
+    />
+  </section>
+  }
+</div>
+}

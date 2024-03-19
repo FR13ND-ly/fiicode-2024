@@ -1,0 +1,24 @@
+<section>
+  <h1>Favorite Products</h1>
+  <div *ngIf="products$ | async as products">
+    <div class="products-wrapper">
+      @for (product of products; track product.id) {
+      <product [product]="product" />
+      }
+    </div>
+    <p *ngIf="!products.length">Here will be placed your favorite products</p>
+  </div>
+</section>
+<section>
+  <h1>Recommendations</h1>
+  <div *ngIf="recommendations$ | async as products">
+    <div class="products-wrapper">
+      @for (product of products; track product.id) {
+      <product [product]="product" />
+      }
+    </div>
+    <p *ngIf="!products.length">
+      We need more information about you to give recommendations
+    </p>
+  </div>
+</section>

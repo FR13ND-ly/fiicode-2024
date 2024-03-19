@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 30rem;
+}
+
+.main {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+h2 {
+  margin-block: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}

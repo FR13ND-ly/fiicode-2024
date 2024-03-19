@@ -1,1 +1,46 @@
-<p>header works!</p>
+<header>
+  <span class="logo" routerLink="/">HealthPedia</span>
+  <section class="searchbox-wrapper">
+    <!-- <app-searchbox /> -->
+  </section>
+  <section class="nav">
+    <button mat-button routerLink="/blog">
+      <mat-icon>newspaper</mat-icon>
+      Blog
+    </button>
+    @if (notifications$ | async; as notifications) {
+    <button
+      mat-icon-button
+      [attr.data-badge]="notifications.unseen"
+      [matMenuTriggerFor]="notificationsMenu"
+      (click)="onOpenNotifications(notifications)"
+    >
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <mat-menu #notificationsMenu="matMenu">
+      <div class="notifications">
+        @for (notification of notifications.last; track notification.id) {
+        <article
+          class="notification"
+          routerLink="/blog/article/{{ notification.articleId }}"
+        >
+          <b>{{ notification.date | date : "medium" }}</b>
+          <p>{{ notification.content }}</p>
+        </article>
+        @if (!$last) {
+        <div class="divider"></div>
+        } }
+        <button mat-button routerLink="/user/notifications">
+          See all notifications
+        </button>
+      </div>
+    </mat-menu>
+    }
+    <button mat-icon-button (click)="onToggleTheme()">
+      <mat-icon>dark_mode</mat-icon>
+    </button>
+    <button mat-icon-button routerLink="/user">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </section>
+</header>

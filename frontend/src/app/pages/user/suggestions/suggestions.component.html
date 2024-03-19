@@ -1,0 +1,34 @@
+<div class="header">
+  <h1>Suggestions</h1>
+</div>
+<div class="wrapper" *ngIf="suggestions$ | async as suggestions">
+  @for (suggestion of suggestions; track suggestion.id) {
+  <article class="suggestion">
+    <div class="content">
+      <h3>Suggestion #{{ suggestion.id }}</h3>
+      <p>{{ suggestion.date | date : "medium" }}</p>
+      <div>
+        <p class="waiting" *ngIf="suggestion.state === -1">Waiting</p>
+        <p class="declined" *ngIf="suggestion.state === 0">Declined</p>
+        <p class="approved" *ngIf="suggestion.state === 1">Approved</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button
+        mat-button
+        (click)="onOpenSuggestion(suggestion)"
+        *ngIf="suggestion.state === -1"
+      >
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+      <button mat-button (click)="onDelete(suggestion, suggestions, $index)">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </div>
+  </article>
+  @if (!$last) {
+  <div class="divider"></div>
+  } }@empty {
+  <p class="empty">No suggestions created yet.</p>
+  }
+</div>

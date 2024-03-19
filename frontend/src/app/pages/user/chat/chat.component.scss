@@ -1,0 +1,15 @@
+mat-form-field {
+  display: flex;
+  width: 50%;
+}
+
+.response {
+  position: relative;
+}
+
+mat-spinner {
+  position: absolute;
+  top: 1rem;
+  scale: 0.3;
+  left: -2rem;
+}

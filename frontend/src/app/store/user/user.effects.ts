@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { UserService } from './user.service';
+import { UserService } from '../../core/data-access/user.service';
 import { userActions } from './user.actions';
 import { map, switchMap, tap } from 'rxjs';
 
@@ -12,9 +12,9 @@ export class UserEffects {
   login$ = createEffect((): any =>
     this.actions$.pipe(
       ofType(userActions.login),
-      switchMap((): any => {
+      switchMap((token: any): any => {
         return this.userService
-          .login()
+          .login(token)
           .pipe(map((user: any) => userActions.loginSuccess(user)));
       })
     )

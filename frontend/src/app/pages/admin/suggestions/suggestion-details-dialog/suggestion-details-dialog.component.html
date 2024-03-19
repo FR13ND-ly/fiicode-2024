@@ -1,0 +1,29 @@
+<h2>Edit Product</h2>
+<p><b>Code:</b> {{ suggestion.code }}</p>
+<div class="main">
+  <section *ngIf="suggestion.name.new != suggestion.name.old">
+    <b>Name:</b> {{ suggestion.name.new }} | <b>Old:</b>
+    {{ suggestion.name.old }}
+  </section>
+  <section *ngIf="suggestion.brand.new != suggestion.brand.old">
+    <b>Brands:</b> {{ suggestion.brand.new }} | <b>Old:</b>
+    {{ suggestion.brand.old }}
+  </section>
+  <section *ngIf="suggestion.imageUrl.new != suggestion.imageUrl.old">
+    <b>Image Url:</b> {{ suggestion.imageUrl.new }} | <b>Old:</b>
+    {{ suggestion.imageUrl.old }}
+  </section>
+  <section *ngIf="suggestion.weight.new != suggestion.weight.old">
+    <b>Image Url:</b> {{ suggestion.weight.new }} | <b>Old:</b>
+
+    {{ suggestion.weight.old }}
+  </section>
+  <differences [data]="ingredients">Ingredients</differences>
+  <differences [data]="categories">Categories</differences>
+  <differences [data]="allergens">Allergens</differences>
+</div>
+<div class="actions">
+  <button mat-button (click)="onApprove()">Approve</button>
+  <button mat-button (click)="onDisApprove()">Decline</button>
+  <button mat-button (click)="onDelete()">Delete</button>
+</div>

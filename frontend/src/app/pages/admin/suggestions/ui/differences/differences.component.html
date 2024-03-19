@@ -1,0 +1,22 @@
+<mat-expansion-panel *ngIf="data.added.length || data.removed.length">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <ng-content></ng-content>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <p></p>
+  <div class="content">
+    <div *ngIf="data.added.length">
+      <b>New: </b>
+      <span
+        >@for (el of data.added; track el) { {{ el }}@if (!$last) {, } }</span
+      >
+    </div>
+    <div *ngIf="data.removed.length">
+      <b>Removed: </b>
+      <span
+        >@for (el of data.removed; track el) { {{ el }}@if (!$last) {, } }</span
+      >
+    </div>
+  </div>
+</mat-expansion-panel>

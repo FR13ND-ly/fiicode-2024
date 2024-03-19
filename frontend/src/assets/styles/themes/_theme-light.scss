@@ -1,0 +1,80 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $light-primary,
+      accent: $light-accent,
+      warn: $light-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($light-theme);
+[data-theme="light"] {
+  --text-50: #eaf8fb;
+  --text-100: #d5f2f6;
+  --text-200: #abe4ed;
+  --text-300: #81d7e4;
+  --text-400: #57cadb;
+  --text-500: #2dbcd2;
+  --text-600: #2497a8;
+  --text-700: #1b717e;
+  --text-800: #124b54;
+  --text-900: #09262a;
+  --text-950: #041315;
+
+  --background-50: #eaf7fb;
+  --background-100: #d4eef7;
+  --background-200: #aaddee;
+  --background-300: #7fcce6;
+  --background-400: #55bbdd;
+  --background-500: #2aaad5;
+  --background-600: #2288aa;
+  --background-700: #196680;
+  --background-800: #114455;
+  --background-900: #08222b;
+  --background-950: #041115;
+
+  --primary-50: #eaf8fb;
+  --primary-100: #d5f2f6;
+  --primary-200: #abe4ed;
+  --primary-300: #81d7e4;
+  --primary-400: #57cadb;
+  --primary-500: #2dbcd2;
+  --primary-600: #2497a8;
+  --primary-700: #1b717e;
+  --primary-800: #124b54;
+  --primary-900: #09262a;
+  --primary-950: #041315;
+
+  --secondary-50: #ffe5e9;
+  --secondary-100: #ffccd4;
+  --secondary-200: #ff99a8;
+  --secondary-300: #ff667d;
+  --secondary-400: #ff3352;
+  --secondary-500: #ff0026;
+  --secondary-600: #cc001f;
+  --secondary-700: #990017;
+  --secondary-800: #66000f;
+  --secondary-900: #330008;
+  --secondary-950: #1a0004;
+
+  --accent-50: #fefae6;
+  --accent-100: #fdf5ce;
+  --accent-200: #fcec9c;
+  --accent-300: #fae26b;
+  --accent-400: #f9d939;
+  --accent-500: #f7cf08;
+  --accent-600: #c6a606;
+  --accent-700: #947c05;
+  --accent-800: #635303;
+  --accent-900: #312902;
+  --accent-950: #191501;
+}

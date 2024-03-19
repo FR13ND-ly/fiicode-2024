@@ -1,0 +1,30 @@
+<h2>Suggest Changest</h2>
+<p><b>Code:</b> {{ suggestion.code }}</p>
+<div class="main">
+  <div class="info">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="suggestion.name.new" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Brands</mat-label>
+      <input matInput [(ngModel)]="suggestion.brand.new" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Image Url</mat-label>
+      <input matInput [(ngModel)]="suggestion.imageUrl.new" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Weight</mat-label>
+      <input matInput [(ngModel)]="suggestion.weight.new" />
+    </mat-form-field>
+  </div>
+  <div class="details">
+    <chips [(items)]="suggestion.allergens.new" name="Allergens" />
+    <chips [(items)]="suggestion.categories.new" name="Categories" />
+    <chips [(items)]="suggestion.ingredients.new" name="Ingredients" />
+  </div>
+</div>
+<div class="actions">
+  <button mat-flat-button color="primary" (click)="onSave()">Save</button>
+</div>

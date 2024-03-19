@@ -1,0 +1,49 @@
+<div class="image-wrapper">
+  <img [src]="vs.product?.imageUrl" />
+</div>
+<div class="info">
+  <div class="product-header">
+    <h1>{{ vs.product?.name }}</h1>
+    <button
+      mat-icon-button
+      [class.favorite]="vs.product.favorites.includes(vs.user.id)"
+      (click)="onFavorite()"
+    >
+      <mat-icon>star</mat-icon>
+    </button>
+    <button mat-button (click)="onEdit()">
+      <mat-icon>edit</mat-icon> Suggest Changes
+    </button>
+  </div>
+  <p>
+    <b>Categories:</b> @for (category of vs.product?.categories; track category)
+    { {{ category.name }}@if(!$last) {,} }
+  </p>
+  <p><b>Code:</b> {{ vs.product?.code }}</p>
+  <p><b>Brands:</b> {{ vs.product?.brand }}</p>
+  <p><b>Weight:</b> {{ vs.product?.weight }}</p>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Ingredients </mat-panel-title>
+      </mat-expansion-panel-header>
+      @for (ingredient of vs.product?.ingredients; track ingredient) {
+      {{ ingredient.name }}@if(!$last) {,} }
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Allergens </mat-panel-title>
+      </mat-expansion-panel-header>
+      @for (allergen of vs.product?.allergens; track allergen) {
+      {{ allergen.name }}@if(!$last) {,} }
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Nutriments </mat-panel-title>
+      </mat-expansion-panel-header>
+      @for (nutriment of vs.product?.nutriments; track nutriment) {
+      {{ nutriment.name }} ({{ nutriment.value }}
+      {{ nutriment.unit }})@if(!$last) {,} }
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

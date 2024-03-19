@@ -1,0 +1,25 @@
+<div class="header">
+  <h1>Notifications</h1>
+</div>
+<div class="wrapper" *ngIf="notifications$ | async as notifications">
+  @for (notification of notifications; track notification.id) {
+  <article>
+    <div class="content">
+      <h3>{{ notification.date | date : "medium" }}</h3>
+      <p>{{ notification.content }}</p>
+    </div>
+    <div class="actions">
+      <button
+        mat-button
+        (click)="onDelete(notification, notifications, $index)"
+      >
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </div>
+  </article>
+  @if (!$last) {
+  <div class="divider"></div>
+  } } @empty {
+  <p class="empty">No notifications to display</p>
+  }
+</div>

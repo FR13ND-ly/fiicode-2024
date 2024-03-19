@@ -1,0 +1,31 @@
+:host {
+  padding: var(--space-lg);
+  padding-top: 0;
+}
+
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(var(--sidebar-width) - var(--space-lg) * 2);
+  height: calc(100vh - var(--header-height) - var(--space-lg) * 2.5);
+}
+
+li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  gap: var(--space-sm);
+  padding: 0.5rem 1rem;
+  border-radius: var(--rounded-sm);
+  &:hover {
+    background-color: var(--text-100);
+  }
+}
+
+.logout {
+  margin-top: 2rem;
+}

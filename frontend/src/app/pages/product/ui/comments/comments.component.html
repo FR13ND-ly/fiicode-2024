@@ -1,0 +1,9 @@
+@if (comments$ | async; as comments) {
+<h2>Comments</h2>
+<add-comment [vs]="vs" (add)="comments.unshift($event)" />
+<div class="wrapper">
+  @for (comment of comments; track comment.id) {
+  <comment [comment]="comment" [userId]="vs.user.id" />
+  }
+</div>
+}

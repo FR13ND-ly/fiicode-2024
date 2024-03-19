@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 80rem;
+}
+
+h2 {
+  margin-block: 0;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 20% auto;
+  gap: 2rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-top: 0.2rem;
+  padding-right: 0.5rem;
+}
+
+mat-form-field {
+  display: flex;
+}
+
+article {
+  display: flex;
+  gap: 1rem;
+}
+
+.nutriments {
+  flex-shrink: 0;
+  max-height: 15rem;
+  overflow-y: auto;
+}
+
+h3 {
+  margin-top: 0;
+}

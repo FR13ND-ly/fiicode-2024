@@ -1,0 +1,23 @@
+:root {
+  --rounded-sm: 0.5rem;
+  --rounded-md: 1rem;
+  --rounded-lg: 2rem;
+
+  --space-unit: 1rem;
+  --space-sm: calc(0.75 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.25 * var(--space-unit));
+
+  --header-height: 60px;
+  --sidebar-width: 18rem;
+}
+
+$zindex-navbar: 1000 !default;
+$zindex-dropdown: 1000 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+$zindex-navbar-fixed: 1030 !default;
+$zindex-modal-background: 1040 !default;
+$zindex-modal: 1050 !default;
+
+$navbar-height: 50px !default;

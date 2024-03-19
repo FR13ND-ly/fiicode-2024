@@ -1,0 +1,10 @@
+<div class="header">
+  <h1>Add Article</h1>
+</div>
+<form (submit)="onPublish(); $event.preventDefault()">
+  <mat-form-field appearance="outline">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput [formControl]="article"></textarea>
+    <button mat-button><mat-icon>send</mat-icon> Submit</button>
+  </mat-form-field>
+</form>

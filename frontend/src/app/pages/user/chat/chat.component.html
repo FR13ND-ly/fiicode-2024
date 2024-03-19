@@ -1,0 +1,21 @@
+<div class="header">
+  <h1>Ai Assistent</h1>
+</div>
+<div *ngIf="user$ | async as user">
+  <form ngForm (submit)="onSubmit(user)">
+    <mat-form-field appearance="outline">
+      <mat-label>Your question</mat-label>
+      <input matInput [formControl]="question" />
+      <button mat-button><mat-icon>send</mat-icon>Ask</button>
+    </mat-form-field>
+  </form>
+  <div class="response">
+    <h2>Response</h2>
+    @if (loading()) {
+    <mat-spinner></mat-spinner>
+    } @else {
+    <p *ngIf="!asked()">Write your first question</p>
+    <markdown [data]="response()"></markdown>
+    }
+  </div>
+</div>

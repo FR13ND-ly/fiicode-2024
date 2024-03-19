@@ -1,0 +1,31 @@
+<h3>Filters</h3>
+<section>
+  <b>Brands</b>
+  <div>
+    @for (brand of filters.brands; track brand) {
+    <mat-checkbox (change)="onChange()" [(ngModel)]="brand.selected">{{
+      brand.name
+    }}</mat-checkbox>
+    }
+  </div>
+</section>
+<section>
+  <b>Categories</b>
+  <div>
+    @for (category of filters.categories; track category) {
+    <mat-checkbox (change)="onChange()" [(ngModel)]="category.selected">{{
+      category.name
+    }}</mat-checkbox>
+    }
+  </div>
+</section>
+<section>
+  <b>Ingredients</b>
+  <div>
+    @for (ingredient of filters.ingredients; track ingredient) {
+    <mat-checkbox (change)="onChange()" [(ngModel)]="ingredient.selected">{{
+      ingredient.name
+    }}</mat-checkbox>
+    }
+  </div>
+</section>

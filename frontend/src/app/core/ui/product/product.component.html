@@ -1,0 +1,8 @@
+<article routerLink="/product/{{ product.id }}">
+  <div class="image-wrapper">
+    <img [src]="product.imageUrl" />
+  </div>
+  <div class="content">
+    <span class="name">{{ product.name }} - {{ product.weight }}</span>
+  </div>
+</article>

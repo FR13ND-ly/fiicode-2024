@@ -1,13 +1,16 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-$-lo_#2(+w@-bxfhg!ur8!zpvt!^&p#208@d49j+dyjq#4goz9'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
 
 INSTALLED_APPS = [
@@ -18,10 +21,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-    'comment',
     'product',
     'suggestion',
     'file',
+    'blog',
     'corsheaders',
     'rest_framework',
 
@@ -83,6 +86,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 DATE_FORMAT = "dd-mn-YYYY"
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -104,5 +108,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
+
+API_URL = os.getenv("API_URL")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -1,0 +1,13 @@
+@if (products$ | async; as products) {
+<filter [products]="products" (filter)="onFilter($event)" />
+<div class="main">
+  <div class="header">
+    <h1>Products</h1>
+  </div>
+  <div class="products-wrapper">
+    @for (product of products; track product.id) {
+    <product [product]="product" />
+    }
+  </div>
+</div>
+}

@@ -1,0 +1,16 @@
+<h2>Add product</h2>
+<p>
+  Access
+  <a href="https://world.openfoodfacts.org/" target="_blank"
+    >world.openfoodfacts.org</a
+  >
+  and insert product code
+</p>
+
+<form (submit)="onSubmit()" ngForm>
+  <mat-form-field>
+    <mat-label>Product Code</mat-label>
+    <input matInput [formControl]="code" />
+  </mat-form-field>
+  <button mat-button color="accent">Add</button>
+</form>

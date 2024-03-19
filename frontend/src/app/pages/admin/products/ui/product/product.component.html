@@ -1,0 +1,21 @@
+<section class="product">
+  <div class="image-wrapper">
+    <img [src]="product.imageUrl" />
+  </div>
+  <div>
+    <h2>{{ product.name }} - {{ product.weight }}</h2>
+    <p><b>Code:</b> {{ product.code }}</p>
+    <p><b>Brands:</b> {{ product.brand }}</p>
+  </div>
+</section>
+<section class="actions">
+  <button mat-button routerLink="/product/{{ product.id }}">
+    <mat-icon>find_in_page</mat-icon> See Page
+  </button>
+  <button mat-button (click)="onEditProduct()">
+    <mat-icon>edit</mat-icon> Edit
+  </button>
+  <button mat-button (click)="onDelete()">
+    <mat-icon>delete</mat-icon> Delete
+  </button>
+</section>

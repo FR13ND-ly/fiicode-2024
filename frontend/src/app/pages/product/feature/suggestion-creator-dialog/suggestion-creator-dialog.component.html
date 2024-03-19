@@ -1,0 +1,30 @@
+<h2>Propose Changes</h2>
+<p><b>Code:</b> {{ product.code }}</p>
+<div class="main">
+  <div class="info">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="product.name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Brands</mat-label>
+      <input matInput [(ngModel)]="product.brand" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Image Url</mat-label>
+      <input matInput [(ngModel)]="product.imageUrl" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Weight</mat-label>
+      <input matInput [(ngModel)]="product.weight" />
+    </mat-form-field>
+  </div>
+  <div class="details">
+    <chips [(items)]="product.allergens" name="Allergens" />
+    <chips [(items)]="product.categories" name="Categories" />
+    <chips [(items)]="product.ingredients" name="Ingredients" />
+  </div>
+</div>
+<div class="actions">
+  <button mat-flat-button color="primary" (click)="onSave()">Save</button>
+</div>

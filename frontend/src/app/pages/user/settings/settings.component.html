@@ -1,0 +1,28 @@
+<div class="header">
+  <h1>Settings</h1>
+</div>
+@if (user$ | async; as user) {
+<div class="user">
+  <div class="avatar">
+    <img [src]="user.imageUrl" />
+  </div>
+  <div>
+    <h2>{{ user.username }}</h2>
+    <button mat-flat-button (click)="fileInput.click()">
+      Change Profile Image
+    </button>
+  </div>
+</div>
+<div class="preferences">
+  <h3>Preferences</h3>
+  <chips [(items)]="allergens" name="Allergens"></chips>
+  <chips [(items)]="dietaryPrefs" name="Dietary Preferences"></chips>
+  <button mat-button (click)="onSetPreferences(user)">Save</button>
+</div>
+<input
+  type="file"
+  class="hidden"
+  (change)="onChangeAvatar($event, user)"
+  #fileInput
+/>
+}

@@ -1,0 +1,14 @@
+article {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  .image-wrapper {
+    width: 100%;
+    height: 15rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

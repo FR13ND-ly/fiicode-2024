@@ -1,0 +1,24 @@
+<div class="header">
+  <h1>Suggestions</h1>
+</div>
+<div class="wrapper" *ngIf="suggestions$ | async as suggestions">
+  @for (suggestion of suggestions; track suggestion.id) {
+  <article class="suggestion">
+    <div class="content">
+      <h3>Suggestion #{{ suggestion.id }}</h3>
+      <p>{{ suggestion.date | date : "medium" }}</p>
+      <user [user]="suggestion.user" />
+    </div>
+    <div class="actions">
+      <button mat-button (click)="onSeeDetails(suggestion)">
+        <mat-icon>fact_check</mat-icon> Exam
+      </button>
+      <button mat-button (click)="onDelete(suggestion, suggestions, $index)">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </div>
+  </article>
+  @if (!$last) {
+  <div class="divider"></div>
+  } }
+</div>

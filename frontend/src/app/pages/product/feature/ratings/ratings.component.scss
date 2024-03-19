@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 2rem;
+  margin-top: 6rem;
+}
+
+span {
+  font-size: 62px;
+  cursor: pointer;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+}
+
+.up {
+  transition: 0.2s;
+  &:hover {
+    color: rgb(171, 255, 171);
+  }
+  &--selected {
+    color: rgb(0, 255, 0);
+  }
+  &:hover.up--selected {
+    color: rgb(0, 197, 0);
+  }
+}
+
+.down {
+  transition: 0.2s;
+  &:hover {
+    color: rgb(255, 162, 162);
+  }
+  &--selected {
+    color: red !important;
+  }
+  &:hover.down--selected {
+    color: rgb(196, 0, 0) !important;
+  }
+}
+
+.count {
+  font-size: 2rem;
+  margin-left: 1rem;
+  transform: translateY(-0.3rem);
+}

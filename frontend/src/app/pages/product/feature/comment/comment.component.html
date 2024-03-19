@@ -1,0 +1,107 @@
+<article>
+  <div class="comment">
+    <div class="comment__content">
+      <div class="top">
+        <user [user]="comment.user" />
+        <span>{{ comment.date | date : "medium" }}</span>
+      </div>
+      <p *ngIf="!comment.edit">{{ comment.content }}</p>
+      <form (submit)="onUpdate(comment, commentEdit)" *ngIf="comment.edit">
+        <mat-form-field class="editor" appearance="outline">
+          <mat-label>Edit Comment</mat-label>
+          <input matInput [formControl]="commentEdit" />
+          <button mat-button type="submit">
+            <mat-icon>send</mat-icon> Save
+          </button>
+        </mat-form-field>
+      </form>
+      <ng-container *ngIf="comment.subComments.length">
+        <button mat-button (click)="reply.set(true)" *ngIf="!reply()">
+          See replies
+        </button>
+        <button mat-button (click)="reply.set(false)" *ngIf="reply()">
+          Hide replies
+        </button>
+      </ng-container>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="!comment.edit">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+
+  <div class="subcomments">
+    <div *ngIf="reply()">
+      <form (submit)="onAddSubComment(form)" #form="ngForm">
+        <mat-form-field class="editor" appearance="outline">
+          <mat-label>Reply</mat-label>
+          <input matInput name="content" required ngModel />
+          <button mat-button type="submit">
+            <mat-icon>send</mat-icon> Reply
+          </button>
+        </mat-form-field>
+      </form>
+      <div class="subcomments__wrapper">
+        @for (subComment of comment.subComments; track subComment.id ) {
+        <div class="comment subcomment">
+          <div class="subcomment__content">
+            <div class="top">
+              <user [user]="subComment.user" />
+              <span>{{ subComment.date | date : "medium" }}</span>
+            </div>
+            <p *ngIf="!subComment.edit">{{ subComment.content }}</p>
+            <form
+              (submit)="onUpdate(subComment, subCommentEdit)"
+              *ngIf="subComment.edit"
+            >
+              <mat-form-field class="editor" appearance="outline">
+                <mat-label>Edit Reply</mat-label>
+                <input matInput name="content" [formControl]="subCommentEdit" />
+                <button mat-button type="submit">
+                  <mat-icon>send</mat-icon> Save
+                </button>
+              </mat-form-field>
+            </form>
+          </div>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="subMenu"
+            *ngIf="subComment.userId == userId"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
+        <mat-menu #subMenu="matMenu">
+          <button mat-menu-item (click)="onEditSubcomment(subComment)">
+            Edit
+          </button>
+          <button
+            mat-menu-item
+            (click)="onDeleteSubComment(subComment.id, $index)"
+          >
+            Delete
+          </button>
+        </mat-menu>
+        }
+      </div>
+    </div>
+  </div>
+</article>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="reply.set(true)" *ngIf="!reply()">
+    Reply
+  </button>
+  <button
+    mat-menu-item
+    (click)="onEditComment()"
+    *ngIf="comment.userId == userId"
+  >
+    Edit
+  </button>
+  <button
+    mat-menu-item
+    (click)="onDeleteComment(comment.id)"
+    *ngIf="comment.userId == userId"
+  >
+    Delete
+  </button>
+</mat-menu>

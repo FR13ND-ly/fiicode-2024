@@ -1,0 +1,14 @@
+<div class="arrows">
+  <span (click)="vote(true)" class="up" [class.up--selected]="userVotedUp"
+    >⇧</span
+  >
+  <span
+    class="down"
+    [class.down--selected]="userVotedUp === false"
+    (click)="vote(false)"
+    >⇩</span
+  >
+</div>
+<div class="count">
+  {{ votesCount }}
+</div>

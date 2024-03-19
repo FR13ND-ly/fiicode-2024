@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  gap: 1rem;
+}
+
+h3 {
+  margin: 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 10rem;
+  }
+}

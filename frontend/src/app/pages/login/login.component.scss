@@ -1,0 +1,10 @@
+:host {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

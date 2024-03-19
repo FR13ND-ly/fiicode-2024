@@ -1,0 +1,30 @@
+<article>
+  <div class="content">
+    <div class="top">
+      <user [user]="article.user" />
+      <span>{{ article.date | date : "medium" }}</span>
+    </div>
+    <p>{{ article.content }}</p>
+    <div class="actions">
+      <button mat-button color="warn" (click)="onLike()">
+        <mat-icon
+          >favorite@if (!(article.likes | liked: userId)) {_outline} </mat-icon
+        >{{ article.likes.length }} likes
+      </button>
+      <button mat-button color="primary" (click)="onOpenArticleDialog()">
+        <mat-icon>forum</mat-icon>{{ article.comments.length }} comments
+      </button>
+    </div>
+  </div>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    *ngIf="article.user.id == userId"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</article>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onEdit()">Edit</button>
+  <button mat-menu-item (click)="onDeleteArticle()">Delete</button>
+</mat-menu>

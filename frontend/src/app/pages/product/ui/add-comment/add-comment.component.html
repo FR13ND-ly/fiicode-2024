@@ -1,0 +1,7 @@
+<form (submit)="onPublish()" ngForm>
+  <mat-form-field appearance="outline">
+    <mat-label>Add Comment</mat-label>
+    <input matInput [formControl]="comment" />
+    <button mat-button><mat-icon>send</mat-icon>Submit</button>
+  </mat-form-field>
+</form>

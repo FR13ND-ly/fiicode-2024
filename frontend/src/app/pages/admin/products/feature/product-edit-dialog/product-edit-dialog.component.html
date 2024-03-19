@@ -1,0 +1,58 @@
+<h2>Edit Product</h2>
+<p><b>Code:</b> {{ product.code }}</p>
+<div class="main">
+  <div class="info">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="product.name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Brands</mat-label>
+      <input matInput [(ngModel)]="product.brand" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Image Url</mat-label>
+      <input matInput [(ngModel)]="product.imageUrl" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Weight</mat-label>
+      <input matInput [(ngModel)]="product.weight" />
+    </mat-form-field>
+  </div>
+  <div class="details">
+    <chips [(items)]="product.allergens" name="Allergens" />
+    <chips [(items)]="product.categories" name="Categories" />
+    <chips [(items)]="product.ingredients" name="Ingredients" />
+    <h3>Nutriments:</h3>
+    <div class="nutriments">
+      @for (nutriment of product.nutriments; track $index) {
+      <article>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="nutriment.name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Weight</mat-label>
+          <input matInput [(ngModel)]="nutriment.value" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Unit</mat-label>
+          <input matInput [(ngModel)]="nutriment.unit" />
+        </mat-form-field>
+        <button mat-icon-button (click)="product.nutriments.splice($index, 1)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </article>
+      }
+      <button
+        mat-button
+        (click)="product.nutriments.push({ name: '', unit: '' })"
+      >
+        Add Nutriment
+      </button>
+    </div>
+  </div>
+</div>
+<div class="actions">
+  <button mat-flat-button color="primary" (click)="onSave()">Save</button>
+</div>

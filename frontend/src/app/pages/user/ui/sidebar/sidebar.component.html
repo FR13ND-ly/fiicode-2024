@@ -1,0 +1,46 @@
+<nav>
+  <li
+    class="item"
+    routerLink="/user/products"
+    routerLinkActive="item--activated"
+  >
+    <mat-icon>bookmarks</mat-icon>
+    <span>Products</span>
+  </li>
+  <li
+    class="item"
+    routerLink="/user/suggestions"
+    routerLinkActive="item--activated"
+  >
+    <mat-icon>tips_and_updates</mat-icon>
+    <span>Suggestions</span>
+  </li>
+  <li
+    class="item"
+    routerLink="/user/assistent"
+    routerLinkActive="item--activated"
+  >
+    <mat-icon>auto_awesome</mat-icon>
+    <span>Ai Assistent</span>
+  </li>
+  <li
+    class="item"
+    routerLink="/user/notifications"
+    routerLinkActive="item--activated"
+  >
+    <mat-icon>notifications</mat-icon>
+    <span>Notifications</span>
+  </li>
+  <li
+    class="item"
+    routerLink="/user/settings"
+    routerLinkActive="item--activated"
+  >
+    <mat-icon>manage_accounts</mat-icon>
+    <span>Settings</span>
+  </li>
+  <li class="item logout" (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </li>
+</nav>
